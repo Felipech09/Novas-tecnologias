@@ -1,0 +1,163 @@
+QUESTÃO 1:
+
+
+print("CAIXA")
+for i in range(5):
+    print("*"*10)
+
+print("Oval:")
+print("""
+      *******
+    **       **
+   *           *
+   *           *
+   *           *
+    **       **
+      *******
+      """)
+
+print("Seta")
+print("""
+            *
+           ***
+          *****
+         *******
+        *********
+            *
+            *
+            *
+            *
+            *
+            *
+      """)
+print("Losângulo")
+print(""" 
+            *
+           ***
+          *****
+         *******
+        *********
+         *******
+          *****
+           ***
+            *
+      """)
+
+
+
+
+QUESTÃO 2:
+str=input("Digite um número: " )
+base=int (input("Escolha a base (8, 10 ou 16)"))
+
+numero_int = int(str, base)
+
+print("Valor em decimal:", numero_int)
+print("Valor em hexadecimal:", hex(numero_int))
+print("Valor em octal:", oct(numero_int))
+
+
+
+QUESTÃO 3:
+print(f"{2} * {3} + {1} = {2*3+1}")
+print(f"({2} * {3}) + {1} = {(2*3)+1}")
+
+print('')
+
+print(f"{4} ** {2} - {3} = {4**2-3}")
+print(f"({4} ** {2}) - {3} = {(4**2)-3}")
+
+print('')
+
+print(f"{14} / {2} / {2} = {14/2/2}")
+print(f"({2} ** {3}) - ({9} / {2}) = {(2**3) - (9/2)}")
+
+
+
+
+QUESTÃO 4:
+texto = input("Digite uma frase: ")
+
+print("A quantidade de caracteres da frase digitada é: ", len(texto))
+print("A primera letra é ", texto[0] + " e a última é ", texto[-1])
+print("A palavra ao contrário fica assim: ", texto[::-1])
+
+
+
+QUESTÃO 5:
+texto = input("Digite o log: ")
+
+data = texto[0:10]
+hora = texto[11:19]
+mensagem = texto[22:]
+
+print("Data:", data)
+print("Hora:", hora)
+print("Mensagem:", mensagem)
+
+
+QUESTÃO 6:
+texto = input("Digite o texto: ")
+deslocamento = int(input("Digite o deslocamento: "))
+
+resultado = ""
+
+for c in texto:
+    if 'a' <= c <= 'z':
+        nova = (ord(c) - ord('a') + deslocamento) % 26 + ord('a')
+        resultado += chr(nova)
+
+    elif 'A' <= c <= 'Z':
+        nova = (ord(c) - ord('A') + deslocamento) % 26 + ord('A')
+        resultado += chr(nova)
+
+print("Texto cifrado:", resultado)
+
+
+
+
+QUESTÃO 7:
+frase = input("Digite uma frase: ")
+
+frase_minuscula = frase.lower()
+
+vogais = "aeiou"
+
+contador = 0
+
+for letra in frase_minuscula:
+    if letra in vogais:
+        contador += 1
+
+print("Quantidade de vogais na frase:", contador)
+
+
+
+QUESTÃO 8:
+def codificar(valor):
+    lista = list(map(int, str(valor)))
+    
+    lista = [(x + 7) % 10 for x in lista]
+    
+    lista = [lista[2], lista[3], lista[0], lista[1]]
+    
+    return int("".join(map(str, lista)))
+
+
+def decodificar(valor):
+    lista = list(map(int, str(valor)))
+    
+    lista = [lista[2], lista[3], lista[0], lista[1]]
+    
+    lista = [(x - 7) % 10 for x in lista]
+    
+    return int("".join(map(str, lista)))
+
+
+entrada = int(input("Digite um número de 4 dígitos: "))
+codificado = codificar(entrada)
+print("Número codificado:", codificado)
+
+decodificado = decodificar(codificado)
+print("Número decodificado:", decodificado)
+
